@@ -1,20 +1,20 @@
 <?php
     class Empresa extends Conectar{
         /*TODO: Listar Registros */
-        public function get_empresa_x_suc_id($suc_id){
+        public function get_empresa_x_com_id($com_id){
             $conectar=parent::Conexion();
             $sql="SP_L_EMPRESA_01 ?";
             $query=$conectar->prepare($sql);
-            $query->bindValue(1,$suc_id);
+            $query->bindValue(1,$com_id);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /*TODO: Listar Registro por ID en especifico */
-        public function get_empresa_x_emp_id($com_id){
+        public function get_empresa_x_emp_id($emp_id){
             $conectar=parent::Conexion();
             $sql="SP_L_EMPRESA_02 ?";
             $query=$conectar->prepare($sql);
-            $query->bindValue(1,$com_id);
+            $query->bindValue(1,$emp_id);
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
