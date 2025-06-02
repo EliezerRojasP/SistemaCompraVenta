@@ -4,6 +4,8 @@ select * from TM_EMPRESA
 select * from TM_SUCURSAL
 select * from TM_COMPANIA
 select * from TM_USUARIO
+select * from TM_ROL
+select * from TM_CATEGORIA
 
 update TM_USUARIO
 set 
@@ -43,3 +45,27 @@ SELECT
 	AND TM_USUARIO.USU_PASS = @USU_PASS
 	AND TM_USUARIO.EST = 1
 END
+
+-- Listar todos los registros por sucursal 
+ALTER PROCEDURE SP_L_CATEGORIA_01 
+@SUC_ID INT
+AS
+BEGIN
+	SELECT 
+		CAT_ID,
+		SUC_ID,
+		CAT_NOM,
+		CONVERT(VARCHAR,FECH_CREA,103) AS FECH_CREA,
+		EST
+FROM 
+	TM_CATEGORIA
+WHERE
+	SUC_ID = @SUC_ID
+	AND EST=1
+END
+
+select * from TM_CATEGORIA
+
+update TM_CATEGORIA
+set 
+	est=1
