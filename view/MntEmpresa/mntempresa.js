@@ -1,4 +1,4 @@
-var suc_id = $('#SUC_IDx').val();
+var com_id = $('#COM_IDx').val();
 
 function init(){
     $("#mantenimiento_form").on("submit",function(e){
@@ -9,9 +9,9 @@ function init(){
 function guardaryeditar(e){
     e.preventDefault();
     var formData = new FormData( $("#mantenimiento_form")[0]);
-    formData.append('suc_id',$('#SUC_IDx').val());
+    formData.append('com_id',$('#COM_IDx').val());
     $.ajax({
-        url:"../../controller/moneda.php?op=guardaryeditar",
+        url:"../../controller/empresa.php?op=guardaryeditar",
         type: "POST",
         data: formData,
         contentType: false,
@@ -21,7 +21,7 @@ function guardaryeditar(e){
             $('#modalmantenimiento').modal('hide');
             
             swal.fire({
-                title:'Moneda',
+                title:'Empresa',
                 text: 'Registro Confirmado',
                 icon: 'success',
             });
@@ -41,9 +41,9 @@ $(document).ready(function() {
             'csvHtml5',
         ],
         "ajax": {
-            "url": "../../controller/moneda.php?op=listar",
+            "url": "../../controller/empresa.php?op=listar",
             type: "post",
-            data: {suc_id:suc_id}
+            data: {com_id:com_id}
         },
         "bDestroy": true,
         "responsive": true,
@@ -77,19 +77,20 @@ $(document).ready(function() {
     });
 });
 
-function editar(mon_id) {
-    $.post("../../controller/moneda.php?op=mostrar", {mon_id: mon_id}, function(data) {
+function editar(emp_id) {
+    $.post("../../controller/empresa.php?op=mostrar", {emp_id: emp_id}, function(data) {
         data= JSON.parse(data);
-        $('#mon_id').val(data.MON_ID);
-        $('#mon_nom').val(data.MON_NOM);
+        $('#emp_id').val(data.EMP_ID);
+        $('#emp_nom').val(data.EMP_NOM);
+        $('#emp_ruc').val(data.EMP_RUC);
     });
     $('#lbltitulo').html('Editar Registro');
     $('#modalmantenimiento').modal('show');
 }
 
-function eliminar(mon_id) {
+function eliminar(emp_id) {
     swal.fire({
-        title: "¿Está seguro de eliminar la categoría?",
+        title: "¿Está seguro de eliminar la Empresa?",
         text: "¡Se eliminará permanentemente!",
         icon: "error",
         confirmButtonText: "Sí, eliminar",
@@ -97,7 +98,7 @@ function eliminar(mon_id) {
         cancelButtonText: "Cancelar"
     }).then((result) => {
         if (result.value){
-            $.post("../../controller/moneda.php?op=eliminar", {mon_id: mon_id}, function(data) {
+            $.post("../../controller/empresa.php?op=eliminar", {emp_id: emp_id}, function(data) {
                 console.log(data);
             });
 
@@ -105,7 +106,7 @@ function eliminar(mon_id) {
 
             swal.fire({
                 title: "Eliminado",
-                text: "La categoría ha sido eliminada correctamente.",
+                text: "La Empresa ha sido eliminada correctamente.",
                 icon: "success"
             })
         }   
@@ -113,8 +114,9 @@ function eliminar(mon_id) {
 }
 
 $(document).on("click", "#btnnuevo", function() {
-    $('#mon_id').val('');
-    $('#mon_nom').val('');
+    $('#emp_id').val('');
+    $('#emp_nom').val('');
+    $('#emp_ruc').val('');
     $('#lbltitulo').html('Nuevo Registro');
     $('#mantenimiento_form')[0].reset();
     $('#modalmantenimiento').modal('show');

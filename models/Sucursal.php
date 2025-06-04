@@ -1,7 +1,7 @@
 <?php
     class Sucursal extends Conectar{
         /*TODO: Listar Registros */
-        public function get_sucursal_x_suc_id($emp_id){
+        public function get_sucursal_x_emp_id($emp_id){
             $conectar=parent::Conexion();
             $sql="SP_L_SUCURSAL_01 ?";
             $query=$conectar->prepare($sql);
@@ -10,7 +10,7 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
         /*TODO: Listar Registro por ID en especifico */
-        public function get_sucursal_x_emp_id($suc_id){
+        public function get_sucursal_x_suc_id($suc_id){
             $conectar=parent::Conexion();
             $sql="SP_L_SUCURSAL_02 ?";
             $query=$conectar->prepare($sql);

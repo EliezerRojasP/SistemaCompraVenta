@@ -1,5 +1,7 @@
 <?php
     require_once("../../config/conexion.php");
+    if(isset($_SESSION["USU_ID"])){
+    
 ?>
 
 <!doctype html>
@@ -26,7 +28,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Mantenimiento</h4>
+                                <h4 class="mb-sm-0">Mantenimiento Categoria</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
@@ -79,3 +81,8 @@
 </body>
 
 </html>
+<?php
+    } else {
+        header("Location:".Conectar::ruta()."view/404/");
+    }
+?>

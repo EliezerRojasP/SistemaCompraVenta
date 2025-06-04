@@ -53,6 +53,7 @@
         case "eliminar":
             $sucursal->delete_sucursal($_POST["suc_id"]);
             break;
+            
         /* TODO: Listar Combo */
         case "combo":
             $datos=$sucursal->get_sucursal_x_emp_id($_POST["emp_id"]);

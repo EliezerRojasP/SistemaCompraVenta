@@ -1,18 +1,11 @@
 use CompraVenta
 
-select * from TM_EMPRESA
-select * from TM_SUCURSAL
-select * from TM_COMPANIA
-select * from TM_USUARIO
-select * from TM_ROL
-select * from TM_CATEGORIA
-
 update TM_USUARIO
 set 
 	FECH_CREA =  getdate();
 
 
-CREATE PROCEDURE SP_L_USUARIO_04
+ALTER PROCEDURE SP_L_USUARIO_04
 @SUC_ID INT,
 @USU_CORREO VARCHAR(50),
 @USU_PASS VARCHAR(30)
@@ -30,6 +23,7 @@ SELECT
     TM_USUARIO.ROL_ID,
     TM_SUCURSAL.EMP_ID,
     TM_SUCURSAL.SUC_NOM,
+	TM_EMPRESA.EMP_ID,
     TM_EMPRESA.EMP_NOM,
     TM_EMPRESA.EMP_RUC,
     TM_EMPRESA.COM_ID,
@@ -69,3 +63,75 @@ select * from TM_CATEGORIA
 update TM_CATEGORIA
 set 
 	est=1
+
+DELETE FROM TM_MONEDA;
+DBCC CHECKIDENT ('TM_MONEDA', RESEED, 0);
+
+-- Listar todos los registros de Moneda (editamos)
+ALTER PROCEDURE SP_L_MONEDA_01 
+@SUC_ID INT
+AS
+BEGIN 
+	SELECT 
+	MON_ID,
+	SUC_ID,
+	MON_NOM,
+	CONVERT(VARCHAR,FECH_CREA,103) AS FECH_CREA,
+	EST
+	FROM TM_MONEDA
+	WHERE
+	SUC_ID = @SUC_ID
+	AND EST=1
+END
+
+delete from TM_MONEDA where est=0
+
+select * from TM_EMPRESA
+select * from TM_SUCURSAL
+select * from TM_COMPANIA
+select * from TM_USUARIO
+select * from TM_ROL
+select * from TM_CATEGORIA
+select * from TM_MONEDA
+select *from  TM_UNIDAD
+
+EXEC SP_L_UNIDAD_01 1
+sp_helptext SP_L_SUCURSAL_01
+
+-- Actualizar Registro  
+CREATE PROCEDURE SP_U_SUCURSAL_01  
+@SUC_ID INT,  
+@EMP_ID INT,  
+@SUC_NOM VARCHAR(150)  
+AS  
+BEGIN  
+ UPDATE TM_SUCURSAL  
+ SET  
+  EMP_ID = @EMP_ID,  
+  SUC_NOM = @SUC_NOM  
+ WHERE  
+  SUC_ID = @SUC_ID  
+END
+
+-- Create Procedure --  
+ALTER PROCEDURE SP_L_SUCURSAL_01  
+AS  
+BEGIN   
+ SELECT * FROM TM_SUCURSAL  
+END
+
+ALTER PROCEDURE SP_L_SUCURSAL_01
+    @emp_id INT
+AS
+BEGIN
+    SELECT * FROM TM_SUCURSAL 
+    WHERE est = 1  -- Solo registros activos
+    AND EMP_ID = @emp_id  -- Si tienes filtro por empresa
+END
+
+SELECT * FROM TM_SUCURSAL
+
+
+SELECT TABLE_SCHEMA, TABLE_NAME 
+FROM INFORMATION_SCHEMA.TABLES 
+WHERE TABLE_NAME LIKE '%sucursal%'
