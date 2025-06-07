@@ -21,9 +21,11 @@
             $data=Array();
             foreach($datos as $row){
                 $sub_array = array();
-                $sub_array = $row["rol_nom"];
-                $sub_array = "Editar";
-                $sub_array = "Eliminar";
+                $sub_array[] = $row["ROL_NOM"];
+                $sub_array[] = $row["FECH_CREA"];
+                $sub_array[] = '<button type="button" onClick="permiso('.$row["ROL_ID"].')" id="'.$row["ROL_ID"].'" class="btn btn-primary btn-icon waves-effect waves-light"><i class="ri-settings-2-line"></i></button>';
+                $sub_array[] = '<button type="button" onclick="editar('.$row["ROL_ID"].')" id="'.$row["ROL_ID"].'" class="btn btn-warning btn-icon waves-effect waves-light"><i class="ri-edit-2-line"></i></button>';
+                $sub_array[] = '<button type="button" onclick="eliminar('.$row["ROL_ID"].')" id="'.$row["ROL_ID"].'"  class="btn btn-danger btn-icon waves-effect waves-light"><i class="ri-delete-bin-5-line"></i></button>';
                 $data[] = $sub_array;
             }
 
@@ -35,13 +37,12 @@
             echo json_encode($results);
             break;
         /* TODO:Monstrar informacion de registro segundo su id */
-        case "monstrar":
+        case "mostrar":
             $datos=$rol->get_rol_x_rol_id($_POST["rol_id"]);
             if (is_array($datos)==true and count($datos)>0){
                 foreach($datos as $row){
-                    $output["rol_id"] = $row["rol_id"];
-                    $output["suc_id"] = $row["suc_id"];
-                    $output["rol_nom"] = $row["rol_nom"];
+                    $output["ROL_ID"] = $row["ROL_ID"];
+                    $output["ROL_NOM"] = $row["ROL_NOM"];
                 }
                 echo json_encode($output);
             }
@@ -51,5 +52,17 @@
         case "eliminar":
             $rol->delete_rol($_POST["rol_id"]);
             break;
+
+
+        case "combo":
+            $datos=$rol->get_rol_x_suc_id($_POST["suc_id"]);
+            if(is_array($datos)==true and count($datos)>0){
+                $html="";
+                $html.="<option value='0' selected>Seleccionar</option>";
+                foreach($datos as $row){
+                    $html.="<option value='".$row["ROL_ID"]."'>".$row["ROL_NOM"]."</option>";
+                }
+                echo $html;
+            }
     }
 ?>

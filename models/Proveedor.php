@@ -18,6 +18,8 @@
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        
         /*TODO: ELiminar o cambiar estado a eliminado */
         public function delete_proveedor($prov_id){
             $conectar=parent::Conexion();
