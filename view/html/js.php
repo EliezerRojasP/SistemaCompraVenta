@@ -647,3 +647,5 @@
 
 <!-- App js -->
 <script src="../../assets/js/app.js"></script>
+
+<script src="../../assets/libs/choices.js/public/assets/scripts/choices.min.js"></script>

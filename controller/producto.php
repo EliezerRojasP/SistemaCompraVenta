@@ -78,6 +78,7 @@
                     $output["PROD_ID"] = $row["PROD_ID"];
                     $output["CAT_ID"] = $row["CAT_ID"];
                     $output["UND_ID"] = $row["UND_ID"];
+                    $output["UND_NOM"] = $row ["UND_NOM"];
                     $output["MON_ID"] = $row["MON_ID"];
                     $output["PROD_NOM"] = $row["PROD_NOM"];
                     $output["PROD_DESCRIP"] = $row["PROD_DESCRIP"];
