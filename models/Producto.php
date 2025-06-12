@@ -39,6 +39,14 @@
         /*TODO: Registro de datos */
         public function insert_producto($suc_id,$cat_id,$prod_nom,$prod_descrip,$und_id,$mon_id,$prod_pcompra,$prod_pventa,$prod_stock,$prod_fechaven,$prod_img){
             $conectar=parent::Conexion();
+
+            require_once("Producto.php");
+            $prod=new Producto();
+            $pro_img='';
+            if($_FILES["prod_img"]["name"] !=''){
+                $prod_img=$prod->upload_image();
+            }
+
             $sql="SP_I_PRODUCTO_01 ?,?,?,?,?,?,?,?,?,?,?";
             $query=$conectar->prepare($sql);
             $query->bindValue(1, $suc_id);
@@ -57,6 +65,17 @@
         /*TODO: Actualizar Datos */
         public function update_producto($prod_id,$suc_id,$cat_id,$prod_nom,$prod_descrip,$und_id,$mon_id,$prod_pcompra,$prod_pventa,$prod_stock,$prod_fechaven,$prod_img){
             $conectar=parent::Conexion();
+
+            require_once("Producto.php");
+            $prod=new Producto();
+            $prod_img='';
+            if($_FILES["prod_img"]["name"] !=''){
+                $prod_img=$prod->upload_image();
+            }else{
+                $prod_img = $POST["hidden_producto_imagen"];
+            }
+
+
             $sql="SP_U_PRODUCTO_01 ?,?,?,?,?,?,?,?,?,?,?,?";
             $query=$conectar->prepare($sql);
             $query->bindValue(1,$prod_id);
@@ -74,5 +93,16 @@
             $query->execute();
         }
         
+        public function upload_image(){
+            if (isset($_FILES["prod_img"])){
+                $extension = explode('.', $_FILES['prod_img']['name']);
+                $new_name = rand() . '.' . $extension[1];
+                $destination = '../assets/producto/' . $new_name;
+                move_uploaded_file($_FILES['prod_img']['tmp_name'], $destination);
+                return $new_name;
+            }else{
+                
+            }
+        }
     }
 ?>

@@ -51,6 +51,7 @@
                                         <thead>
                                             <>
                                             <tr>
+                                                <th></th>
                                                 <th>Categoria</th> 
                                                 <th>Nombre</th>
                                                 <th>Descripcion</th>
