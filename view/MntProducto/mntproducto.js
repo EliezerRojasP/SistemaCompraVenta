@@ -147,6 +147,7 @@ $(document).on("click","#btnnuevo",function(){
     $('#und_id').val('').trigger('change');
     $('#mon_id').val('').trigger('change');
     $('#lbltitulo').html('Nuevo Registro');
+    $('#pre_imagen').html('<img src="../../assets/producto/no_imagen.png" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image"></img><input type="hidden" name="hidden_producto_imagen" value="" />');
     $("#mantenimiento_form")[0].reset();
     $('#modalmantenimiento').modal('show');
 });

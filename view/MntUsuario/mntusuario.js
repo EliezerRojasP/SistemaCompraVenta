@@ -91,7 +91,9 @@ function editar(usu_id) {
         $('#usu_dni').val(data.USU_DNI);
         $('#usu_telf').val(data.USU_TELF);
         $('#usu_pass').val(data.USU_PASS);
-        $('#rol_id').val(data.ROL_ID);
+        $('#rol_id').val(data.ROL_ID).trigger('change');
+        $('#pre_imagen').html(data.USU_IMG);
+
     });
     $('#lbltitulo').html('Editar Usuario');
     $('#modalmantenimiento').modal('show');
@@ -132,8 +134,28 @@ $(document).on("click", "#btnnuevo", function() {
     $('#usu_pass').val('');
     $('#rol_id').val('');
     $('#lbltitulo').html('Nuevo Registro');
+    $('#pre_imagen').html('<img src="../../assets/usuario/no_imagen.png" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image"></img><input type="hidden" name="hidden_usuario_imagen" value="" />');
     $('#mantenimiento_form')[0].reset();
     $('#modalmantenimiento').modal('show');
+});
+
+function filePreview(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#pre_imagen').html('<img src='+e.target.result+' class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image"></img>');
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$(document).on('change','#usu_img',function(){
+    filePreview(this);
+});
+
+$(document).on("click","#btnremovephoto",function(){
+    $('#usu_img').val('');
+    $('#pre_imagen').html('<img src="../../assets/usuario/no_imagen.png" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image"></img><input type="hidden" name="hidden_usuario_imagen" value="" />');
 });
 
 init();

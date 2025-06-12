@@ -7,11 +7,11 @@
 
     switch ($_GET["op"]){
         /*TODO: Guardar y editar, guardar cuando el ID este vacio, y Actualizar cuando se envie el ID */
-        case 'guardaryeditar':
+        case "guardaryeditar":
             if(empty($_POST["usu_id"])){
-                $usuario->insert_usuario($_POST["suc_id"],$_POST["usu_correo"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_dni"],$_POST["usu_telf"],$_POST["usu_pass"],$_POST["rol_id"]);
+                $usuario->insert_usuario($_POST["suc_id"],$_POST["usu_correo"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_dni"],$_POST["usu_telf"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["usu_img"]);
             }else{
-                $usuario->update_usuario($_POST["usu_id"],$_POST["suc_id"],$_POST["usu_correo"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_dni"],$_POST["usu_telf"],$_POST["usu_pass"],$_POST["rol_id"]);
+                $usuario->update_usuario($_POST["usu_id"],$_POST["suc_id"],$_POST["usu_correo"],$_POST["usu_nom"],$_POST["usu_ape"],$_POST["usu_dni"],$_POST["usu_telf"],$_POST["usu_pass"],$_POST["rol_id"],$_POST["usu_img"]);
             }
             break;
         
@@ -21,6 +21,22 @@
             $data=Array();
             foreach($datos as $row){
                 $sub_array = array();
+                
+                if ($row["USU_IMG"] != ''){
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/usuario/".$row["USU_IMG"]."' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }else{
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/usuario/no_imagen.png' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }
                 $sub_array[] = $row["USU_CORREO"];
                 $sub_array[] = $row["USU_NOM"];
                 $sub_array[] = $row["USU_APE"];
@@ -55,6 +71,11 @@
                     $output["USU_TELF"] = $row["USU_TELF"];
                     $output["USU_PASS"] = $row["USU_PASS"];
                     $output["ROL_ID"] = $row["ROL_ID"];
+                    if($row["USU_IMG"] != ''){
+                        $output["USU_IMG"] = '<img src="../../assets/usuario/'.$row["USU_IMG"].'" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image"></img><input type="hidden" name="hidden_usuario_imagen" value="'.$row["USU_IMG"].'" />';
+                    }else{
+                        $output["USU_IMG"] = '<img src="../../assets/usuario/no_imagen.png" class="rounded-circle avatar-xl img-thumbnail user-profile-image" alt="user-profile-image"></img><input type="hidden" name="hidden_usuario_imagen" value="" />';
+                    }
                 }
                 echo json_encode($output);
             }
@@ -66,6 +87,7 @@
             break;
 
         case "combo":
+
             $datos=$usuario->get_usuario_x_suc_id($_POST["suc_id"]);
             if(is_array($datos)==true and count($datos)>0){
                 $html="";
@@ -76,6 +98,8 @@
                 echo $html;
             }
 
+
+        
         case "actualizar":
             $usuario->update_usuario_pass($_POST["usu_id"],$_POST["usu_pass"]);
             break;  
