@@ -38,6 +38,21 @@
             $data=Array();
             foreach($datos as $row){
                 $sub_array = array();
+                if ($row["PROD_IMG"] != ''){
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/producto/".$row["PROD_IMG"]."' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }else{
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/producto/no_imagen.png' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }
                 $sub_array[] = $row["CAT_NOM"];
                 $sub_array[] = $row["PROD_NOM"];
                 $sub_array[] = $row["UND_NOM"];
@@ -60,14 +75,31 @@
             $datos=$venta->get_venta_detalle($_POST["vent_id"]);
             foreach($datos as $row){
                 ?>
-                     <tr>
-                        <th><?php echo $row["CAT_NOM"];?></th>
-                        <td><?php echo $row["PROD_NOM"];?></td>
-                        <td scope="row"><?php echo $row["UND_NOM"];?></td>
-                        <td><?php echo $row["PROD_PVENTA"];?></td>
-                        <td><?php echo $row["DETV_CANT"];?></td>
-                        <td class="text-end"><?php echo $row["DETV_TOTAL"];?></td>
-                    </tr>
+                 <tr>
+                    <td>
+                        <?php 
+                            if ($row["PROD_IMG"] != ''){
+                                echo "<div class='d-flex align-items-center'>
+                                        <div class='flex-shrink-0 me-2'>
+                                            <img src='../../assets/producto/".$row["PROD_IMG"]."' alt='' class='avatar-xs rounded-circle'>
+                                        </div>
+                                    </div>";
+                            } else {
+                                echo "<div class='d-flex align-items-center'>
+                                        <div class='flex-shrink-0 me-2'>
+                                            <img src='../../assets/producto/no_imagen.png' alt='' class='avatar-xs rounded-circle'>
+                                        </div>
+                                    </div>";
+                            }
+                        ?>
+                    </td>
+                    <td><?php echo $row["CAT_NOM"];?></td>
+                    <td><?php echo $row["PROD_NOM"];?></td>
+                    <td><?php echo $row["UND_NOM"];?></td>
+                    <td><?php echo $row["PROD_PVENTA"];?></td>
+                    <td><?php echo $row["DETV_CANT"];?></td>
+                    <td class="text-end"><?php echo $row["DETV_TOTAL"];?></td>
+                </tr>
                 <?php
             }
             break;
@@ -134,6 +166,21 @@
                 $sub_array[] = $row["VENT_IGV"];
                 $sub_array[] = $row["VENT_TOTAL"];
                 $sub_array[] = $row["USU_NOM"]." ".$row["USU_APE"];
+                if ($row["USU_IMG"] != ''){
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/usuario/".$row["USU_IMG"]."' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }else{
+                    $sub_array[] =
+                    "<div class='d-flex align-items-center'>" .
+                        "<div class='flex-shrink-0 me-2'>".
+                            "<img src='../../assets/usuario/no_imagen.png' alt='' class='avatar-xs rounded-circle'>".
+                        "</div>".
+                    "</div>";
+                }
                 $sub_array[] = '<a href="../ViewVenta/?v='.$row["VENT_ID"].'" target="_blank" class="btn btn-primary btn-icon waves-effect waves-light"><i class="ri-printer-line"></i></a>';
                 $sub_array[] = '<button type="button" onClick="ver('.$row["VENT_ID"].')" id="'.$row["VENT_ID"].'" class="btn btn-success btn-icon waves-effect waves-light"><i class="ri-settings-2-line"></i></button>';
                 $data[] = $sub_array;

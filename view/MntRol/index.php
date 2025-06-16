@@ -1,7 +1,11 @@
 <?php
     require_once("../../config/conexion.php");
+    require_once("../../models/Rol.php");
+    $rol = new Rol();
+    $datos = $rol->validar_acceso_rol($_SESSION["USU_ID"],"mntrol");
     if(isset($_SESSION["USU_ID"])){
-    
+        if(is_array($datos) and count ($datos)>0){
+
 ?>
 
 <!doctype html>
@@ -10,7 +14,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Categoria</title>
+    <title>Rol</title>
     <?php require_once("../html/head.php"); ?>
 
 </head>
@@ -28,7 +32,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Mantenimiento Categoria</h4>
+                                <h4 class="mb-sm-0">Mantenimiento Rol</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
@@ -85,6 +89,9 @@
 
 </html>
 <?php
+        }else{
+            header("Location:".Conectar::ruta()."view/404/");
+        }
     } else {
         header("Location:".Conectar::ruta()."view/404/");
     }

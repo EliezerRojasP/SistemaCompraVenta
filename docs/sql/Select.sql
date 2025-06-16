@@ -33,7 +33,7 @@ sp_helptext SP_U_PRODUCTO_01
 
 select * from TM_PRODUCTO
 
-sp_helptext SP_L_PROVEEDOR_02
+
 
 select * from TM_USUARIO
 select * from TM_ROL

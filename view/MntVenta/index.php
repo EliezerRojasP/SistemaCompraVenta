@@ -1,6 +1,11 @@
 <?php
     require_once("../../config/conexion.php");
+    require_once("../../models/Rol.php");
+    $rol = new Rol();
+    $datos = $rol->validar_acceso_rol($_SESSION["USU_ID"],"mntventa");
     if(isset($_SESSION["USU_ID"])){
+        if(is_array($datos) and count ($datos)>0){
+
 ?>
 
 <!doctype html>
@@ -189,7 +194,8 @@
                                 <div class="card-body">
                                     <table id="table_data" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
                                         <thead>
-                                            <tr>
+                                            <tr>\
+                                                <th></th>
                                                 <th>Categoria</th>
                                                 <th>Producto</th>
                                                 <th>Und</th>
@@ -250,7 +256,10 @@
 
 </html>
 <?php
-    }else{
+        }else{
+            header("Location:".Conectar::ruta()."view/404/");
+        }
+    } else {
         header("Location:".Conectar::ruta()."view/404/");
     }
 ?>
