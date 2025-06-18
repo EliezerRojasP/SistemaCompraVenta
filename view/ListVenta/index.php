@@ -49,6 +49,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Nro</th>
+                                                <th>Doc.</th>
                                                 <th>RUC</th>
                                                 <th>Cliente</th>
                                                 <th>Pago</th>

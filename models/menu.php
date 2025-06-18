@@ -11,6 +11,15 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function insert_menu_detalle_X_rol_id($rol_id){
+            $conectar=parent::Conexion();
+            $sql="SP_I_MENU_02 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$rol_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+
         public function update_menu_habilitar($mend_id){
             $conectar=parent::Conexion();
             $sql="SP_U_MENU_01 ?";

@@ -58,7 +58,16 @@
                                     <div class="live-preview">
                                         <div class="row align-items-center g-3">
 
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
+                                                <label for="doc_id" class="form-label">Documento</label>
+                                                <select id="doc_id" name="doc_id" class="form-control form-select" aria-label="Seleccionar">
+                                                    <option value="0" selected>Seleccione</option>
+
+                                                </select>
+                                            </div>
+
+
+                                            <div class="col-lg-4">
                                                 <label for="pag_id" class="form-label">Pago</label>
                                                 <select id="pag_id" name="pag_id" class="form-control form-select" aria-label="Seleccionar">
                                                     <option value="0" selected>Seleccione</option>
@@ -66,7 +75,7 @@
                                                 </select>
                                             </div>
 
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4">
                                                 <label for="mon_id" class="form-label">Moneda</label>
                                                 <select id="mon_id" name="mon_id" class="form-control form-select" aria-label="Seleccionar">
                                                     <option value='0' selected>Seleccione</option>

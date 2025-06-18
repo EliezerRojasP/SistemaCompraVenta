@@ -113,7 +113,8 @@
                 $_POST["cli_direcc"],
                 $_POST["cli_correo"],
                 $_POST["vent_coment"],
-                $_POST["mon_id"]
+                $_POST["mon_id"],
+                $_POST["doc_id"]
             );
             break;
 
@@ -158,6 +159,7 @@
             foreach($datos as $row){
                 $sub_array = array();
                 $sub_array[] = "V-".$row["VENT_ID"];
+                $sub_array[] = $row["DOC_NOM"];
                 $sub_array[] = $row["CLI_RUC"];
                 $sub_array[] = $row["CLI_NOM"];
                 $sub_array[] = $row["PAG_NOM"];
@@ -192,6 +194,58 @@
                 "iTotalDisplayRecords"=>count($data),
                 "aaData"=>$data);
             echo json_encode($results);
+            break;
+
+        /* TODO: Listar to5 productos mas vendidos */
+        case "listartopproducto";
+            $datos=$venta->get_venta_top_productos($_POST["suc_id"]);
+            foreach($datos as $row){
+                ?>
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-sm bg-light rounded p-1 me-2">
+                                <?php
+                                    if ($row["PROD_IMG"] != ''){
+                                        ?>
+                                            <?php
+                                                echo "<img src='../../assets/producto/".$row["PROD_IMG"]."' alt='' class='img-fluid d-block' />";
+                                            ?>
+                                        <?php
+                                    }else{
+                                        ?>
+                                            <?php 
+                                                echo "<img src='../../assets/producto/no_imagen.png' alt='' class='img-fluid d-block' />";
+                                            ?>
+                                        <?php
+                                    }
+                                ?>
+                                </div>
+                                <div>
+                                    <h5 class="fs-14 my-1"><?php echo $row["PROD_NOM"];?></h5>
+                                    <span class="text-muted"><?php echo $row["CAT_NOM"];?></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <h5 class="fs-14 my-1 fw-normal"><?php echo $row["PROD_PVENTA"];?></h5>
+                            <span class="text-muted">P.Venta</span>
+                        </td>
+                        <td>
+                            <h5 class="fs-14 my-1 fw-normal"><?php echo $row["CANT"];?></h5>
+                            <span class="text-muted">Cant</span>
+                        </td>
+                        <td>
+                            <h5 class="fs-14 my-1 fw-normal"><?php echo $row["PROD_STOCK"];?></h5>
+                            <span class="text-muted">Stock</span>
+                        </td>
+                        <td>
+                            <h5 class="fs-14 my-1 fw-normal"><b><?php echo $row["MON_NOM"];?></b> <?php echo $row["TOTAL"];?></h5>
+                            <span class="text-muted">Total</span>
+                        </td>
+                    </tr>
+                <?php
+            }
             break;
 
     }
