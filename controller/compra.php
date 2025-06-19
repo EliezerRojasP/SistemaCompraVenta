@@ -248,7 +248,7 @@
             }
             break;
         /* TODO: Mostrar TOP 5 ultimas compras */
-        /* case "top5":
+        case "top5":
             $datos=$compra->get_compra_top_5($_POST["suc_id"]);
             foreach($datos as $row){
                 ?>
@@ -288,7 +288,7 @@
             }
             break;
         /* TODO: Listado de actividades recientes para dashboard */
-        /*case "compraventa":
+        case "compraventa":
             $datos=$compra->get_compraventa($_POST["suc_id"]);
             foreach($datos as $row){
                 ?>
@@ -320,7 +320,7 @@
             }
             break;
         /* TODO: consumo de compras por categoria para Donut del dashboard */
-        /*case "dountcompra":
+        case "dountcompra":
             $datos=$compra->get_consumocompra_categoria($_POST["suc_id"]);
             $data = array();
             foreach($datos as $row){

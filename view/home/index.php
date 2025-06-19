@@ -396,6 +396,7 @@
     <!-- Chart JS -->
     <script src="../../assets/libs/chart.js/chart.min.js"></script>
 
+    <!-- chartjs init -->
     <script src="../../assets/js/pages/chartjs.init.js"></script>
 
     <script type="text/javascript" src="home.js"></script>

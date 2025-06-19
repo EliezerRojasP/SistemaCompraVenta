@@ -94,5 +94,32 @@
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
 
+        public function get_compra_top_5($suc_id){
+            $conectar=parent::Conexion();
+            $sql="SP_L_COMPRA_05 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$suc_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        public function get_compraventa($suc_id){
+            $conectar=parent::Conexion();
+            $sql="SP_L_COMPRAVENTA_01 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$suc_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+
+        public function get_consumocompra_categoria($suc_id){
+            $conectar=parent::Conexion();
+            $sql="SP_L_COMPRA_04 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$suc_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 ?>

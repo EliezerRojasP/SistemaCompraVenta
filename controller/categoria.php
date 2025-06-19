@@ -65,5 +65,17 @@
                 echo $html;
             }
             break;
+
+            /* TODO: Formato para la vista dashboard stock por categoria */
+            case "stock":
+                $datos=$categoria->get_categoria_total_stock($_POST["suc_id"]);
+                foreach($datos as $row){
+                    ?>
+                        <li class="py-1">
+                            <a href="#" class="text-muted"><?php echo $row["CAT_NOM"];?> <span class="float-end">(<?php echo $row["STOCK"];?>)</span></a>
+                        </li>
+                    <?php
+                }
+                break;
         }
 ?>
