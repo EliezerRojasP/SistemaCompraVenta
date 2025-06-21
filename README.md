@@ -66,7 +66,7 @@ _Las herramientas utilizadas son las siguientes_
 
 *I202013943 ELIEZER FERRER ROJAS PANTIGOSO*
 
-*I202315915 CARLOS HINOJOSA CANO*
+*I202315915 CARLOS DANIEL HINOJOSA CANO*
 
 ## Expresiones de Gratitud 🎁
 
