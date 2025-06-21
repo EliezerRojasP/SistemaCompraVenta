@@ -22,7 +22,7 @@ function guardaryeditar(e){
             $('#modalmantenimiento').modal('hide');
 
             swal.fire({
-                title:'Categoria',
+                title:'Cliente',
                 text: 'Registro Confirmado',
                 icon: 'success'
             });

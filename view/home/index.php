@@ -86,9 +86,9 @@
                                                             <a href="../MntProducto/" type="button" class="btn btn-soft-success"><i class="ri-add-circle-line align-middle me-1"></i> Agregar Producto</a>
                                                         </div>
 
-                                                        <div class="col-auto">
+                                                        <!-- <div class="col-auto">
                                                             <button type="button" class="btn btn-soft-info btn-icon waves-effect waves-light layout-rightside-btn"><i class="ri-pulse-line"></i></button>
-                                                        </div>
+                                                        </div> -->
 
                                                     </div>
                                                  

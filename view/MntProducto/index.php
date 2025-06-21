@@ -12,8 +12,6 @@
 <html lang="es" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg" data-sidebar-image="none">
 
 <head>
-
-    <meta charset="utf-8" />
     <title>Cliente</title>
     <?php require_once("../html/head.php"); ?>
 
@@ -69,6 +67,7 @@
                                                 <th>FechaCreacion</th>
                                                 <th>Editar</th>
                                                 <th>Eliminar</th>
+                                                <th></th>?
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -89,8 +88,11 @@
 
     </div>
 
+    <?php require_once("modalconsumo.php"); ?>
+    
     <?php require_once("mantenimiento.php"); ?>
 
+    
     <?php require_once("../html/js.php"); ?>
     <script type="text/javascript" src="mntproducto.js"></script>
 </body>

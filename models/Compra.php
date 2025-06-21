@@ -121,5 +121,14 @@
             $query->execute();
             return $query->fetchAll(PDO::FETCH_ASSOC);
         }
+
+        public function get_compra_barras($suc_id){
+            $conectar=parent::Conexion();
+            $sql="SP_L_COMPRAS_05 ?";
+            $query=$conectar->prepare($sql);
+            $query->bindValue(1,$suc_id);
+            $query->execute();
+            return $query->fetchAll(PDO::FETCH_ASSOC);
+        }
     }
 ?>
