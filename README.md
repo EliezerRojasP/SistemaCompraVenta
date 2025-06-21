@@ -20,19 +20,22 @@ _Para poder inicializar el sistema se requiere lo siguiente :_
 ```
 
 ### 📂 Estructura del Proyecto
+```
 
 SistemaCompraVenta/
-├── assets/           # Archivos estáticos (imágenes, CSS, JS adicional)
-├── config/           # Configuración del sistema, conexión a base de datos
-├── controller/       # Lógica de negocio y controladores
-├── docs/             # Documentación técnica u otros archivos de soporte
-├── models/           # Modelos de datos y consultas SQL
-├── view/             # Vistas (HTML + PHP para frontend)
-├── index.php         # Página principal del sistema
-├── login.php         # Página de inicio de sesión
-├── login.js          # Lógica JS del login
-└── README.md         # Archivo de documentación del proyecto
+├── assets/        # Archivos estáticos (imágenes, CSS, JS adicional)
+├── config/        # Configuración del sistema, conexión a base de datos
+├── controller/    # Lógica de negocio y controladores
+├── docs/          # Documentación técnica u otros archivos de soporte
+├── models/        # Modelos de datos y consultas SQL
+├── view/          # Vistas (HTML + PHP para frontend)
+├── index.php      # Página principal del sistema
+├── login.php      # Página de inicio de sesión
+├── login.js       # Lógica JS del login
+└── README.md      # Archivo de documentación del proyecto
 
+
+```
 
 ### Instalación 🔧
 ```
@@ -58,13 +61,17 @@ _Las herramientas utilizadas son las siguientes_
 ## Integrantes del equipo ✒️
 
 *I202314172 FRANCO DANIEL RAMIREZ VILLANUEVA*
+
 *I202220971 PAUL EDGARDO CARRASCO MARTINEZ*
+
 *I202013943 ELIEZER FERRER ROJAS PANTIGOSO*
+
 *I202315915 CARLOS HINOJOSA CANO*
 
 ## Expresiones de Gratitud 🎁
 
 *Agradecimiento especial al Instituto Cibertec por la formación y el apoyo brindado.*
+
 *Gracias a todos los docentes que compartieron sus conocimientos durante el desarrollo de este proyecto.*
 
 ---
