@@ -51,7 +51,6 @@
                                 <div class="card-body">
                                     <table id="table_data" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
                                         <thead>
-                                            <>
                                             <tr>
                                                 <th></th>
                                                 <th>Categoria</th> 
@@ -67,7 +66,7 @@
                                                 <th>FechaCreacion</th>
                                                 <th>Editar</th>
                                                 <th>Eliminar</th>
-                                                <th></th>?
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>

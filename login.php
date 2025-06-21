@@ -63,13 +63,13 @@
                                                     </div>
                                                     <div class="carousel-inner text-center text-white-50 pb-5">
                                                         <div class="carousel-item active">
-                                                            <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                            <p class="fs-15 fst-italic">" Fácil de usar, rápida y confiable. Gestiona tus productos sin complicaciones. "</p>
                                                         </div>
                                                         <div class="carousel-item">
-                                                            <p class="fs-15 fst-italic">" The theme is really great with an amazing customer support."</p>
+                                                            <p class="fs-15 fst-italic">" La solución perfecta para controlar inventario y ventas. "</p>
                                                         </div>
                                                         <div class="carousel-item">
-                                                            <p class="fs-15 fst-italic">" Great! Clean code, clean design, easy for customization. Thanks very much! "</p>
+                                                            <p class="fs-15 fst-italic">" Herramienta imprescindible para mi negocio, todo en un solo lugar. "</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -113,9 +113,6 @@
                                                 </div>
 
                                                 <div class="mb-3">
-                                                    <div class="float-end">
-                                                        <a href="auth-pass-reset-cover.html" class="text-muted">Olvide Contraseña?</a>
-                                                    </div>
                                                     <label class="form-label" for="usu_pass">Contraseña</label>
                                                     <div class="position-relative auth-pass-inputgroup mb-3">
                                                         <input type="password" class="form-control pe-5" placeholder="Ingrese Contraseña" name="usu_pass" id="usu_pass">
@@ -156,19 +153,19 @@
         <!-- end auth page content -->
 
         <!-- footer -->
-        <footer class="footer">
+         <footer class="footer">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center">
                             <p class="mb-0">&copy;
-                                <script>document.write(new Date().getFullYear())</script> Velzon. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
+                                <script>document.write(new Date().getFullYear())</script> Compra y Venta. Desarrollado con <i class="mdi mdi-heart text-danger"></i> EFSRT4 
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </footer>
+        </footer> 
         <!-- end Footer -->
     </div>
     <!-- end auth-page-wrapper -->

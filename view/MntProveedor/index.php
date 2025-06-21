@@ -53,16 +53,14 @@
                                 <div class="card-body">
                                     <table id="table_data" class="table table-bordered dt-responsive nowrap table-striped align-middle" style="width:100%">
                                         <thead>
-                                            <>
-                                                <th>Nombre</th>
-                                                <th>Ruc</th>
-                                                <th>Telefono</th>
-                                                <th>Direccion</th>
-                                                <th>Email</th>
-                                                <th>FechaCreacion</th>
-                                                <th>Editar</th>
-                                                <th>Eliminar</th>
-                                            </tr>
+                                            <th>Nombre</th>
+                                            <th>Ruc</th>
+                                            <th>Telefono</th>
+                                            <th>Direccion</th>
+                                            <th>Email</th>
+                                            <th>FechaCreacion</th>
+                                            <th>Editar</th>
+                                            <th>Eliminar</th>
                                         </thead>
                                         <tbody>
                                         </tbody>

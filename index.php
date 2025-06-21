@@ -17,28 +17,28 @@
     <link href="assets/css/custom.min.css" rel="stylesheet" type="text/css" />
 
     <style>
-        /* Custom styles for enhanced professionalism */
+        
         .company-card {
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            border: 1px solid rgba(var(--bs-primary-rgb), 0.1); /* Subtle border */
+            border: 1px solid rgba(var(--bs-primary-rgb), 0.1); 
         }
         .company-card:hover {
-            transform: translateY(-5px); /* Slight lift effect */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* More prominent shadow */
-            cursor: pointer; /* Indicate clickable */
+            transform: translateY(-5px); 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+            cursor: pointer; 
         }
         .company-card .card-body {
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Distribute content vertically */
-            min-height: 250px; /* Ensure cards have a consistent height */
+            justify-content: space-between; 
+            min-height: 250px; 
         }
         .company-card .avatar-title {
-            background-color: var(--bs-primary-rgb); /* Use primary color for icons */
+            background-color: var(--bs-primary-rgb); 
             color: var(--bs-white);
         }
         .company-card .btn-select-company {
-            margin-top: auto; /* Push button to the bottom */
+            margin-top: auto; 
         }
     </style>
 </head>
@@ -49,7 +49,7 @@
         <nav class="navbar navbar-expand-lg navbar-landing fixed-top" id="navbar">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/logo-dark.png" class="card-logo card-logo-dark" alt="Logo de [Nombre de tu Aplicación]" height="22">
+                    <img src="assets/images/comprayventa.png" class="card-logo card-logo-dark" alt="Logo de [Nombre de tu Aplicación]" height="100">
                     <img src="assets/images/logo-light.png" class="card-logo card-logo-light" alt="Logo de [Nombre de tu Aplicación]" height="22">
                 </a>
                 <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -231,26 +231,6 @@
                 </div>
             </div>
         </section>
-
-        <footer class="custom-footer bg-dark py-5 position-relative">
-            <div class="container">
-                <div class="row text-center text-sm-start align-items-center mt-1">
-                    <div class="col-sm-6">
-                        <div>
-                            <p class="copy-rights mb-0 text-muted">
-                                <script> document.write(new Date().getFullYear()) </script> © [Nombre de tu Aplicación]. Todos los derechos reservados.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="text-sm-end mt-3 mt-sm-0">
-                            <p class="text-muted mb-0">¿Necesitas ayuda? <a href="#" class="text-info text-decoration-underline">Contacta a soporte</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
     </div>
 
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
