@@ -8,36 +8,46 @@
     switch ($_GET["op"]){
         /*TODO: Guardar y editar, guardar cuando el ID este vacio, y Actualizar cuando se envie el ID */
         case 'guardaryeditar':
-            if (empty($_POST["prod_id"])) {
-                $producto->insert_producto(
-                    $_POST["suc_id"],
-                    $_POST["cat_id"],
-                    $_POST["prod_nom"],
-                    $_POST["prod_descrip"],
-                    $_POST["und_id"],
-                    $_POST["mon_id"],
-                    $_POST["prod_pcompra"],
-                    $_POST["prod_pventa"],
-                    $_POST["prod_stock"],
-                    $_POST["prod_fechaven"],
-                    $_POST["prod_img"]
-                );
+            $suc_id = $_POST["suc_id"];
+            $cat_id = $_POST["cat_id"];
+            $prod_nom = $_POST["prod_nom"];
+            $prod_descrip = $_POST["prod_descrip"];
+            $und_id = $_POST["und_id"];
+            $mon_id = $_POST["mon_id"];
+            $prod_pcompra = $_POST["prod_pcompra"];
+            $prod_pventa = $_POST["prod_pventa"];
+            $prod_stock = $_POST["prod_stock"];
+            $prod_fechaven = $_POST["prod_fechaven"];
+            $prod_id = $_POST["prod_id"];
+
+            $prod_img = "";
+
+            if (isset($_FILES["prod_img"]) && $_FILES["prod_img"]["error"] == UPLOAD_ERR_OK) {
+                $extension = pathinfo($_FILES["prod_img"]["name"], PATHINFO_EXTENSION);
+                $prod_img = uniqid() . "." . $extension;
+                $ruta = "../../assets/producto/" . $prod_img;
+
+                if (!move_uploaded_file($_FILES["prod_img"]["tmp_name"], $ruta)) {
+                    echo json_encode(["status" => "error", "message" => "Error al subir la imagen."]);
+                    exit;
+                }
             } else {
-                $producto->update_producto(
-                    $_POST["prod_id"],
-                    $_POST["suc_id"],
-                    $_POST["cat_id"],
-                    $_POST["prod_nom"],
-                    $_POST["prod_descrip"],
-                    $_POST["und_id"],
-                    $_POST["mon_id"],
-                    $_POST["prod_pcompra"],
-                    $_POST["prod_pventa"],
-                    $_POST["prod_stock"],
-                    $_POST["prod_fechaven"],
-                    $_POST["prod_img"]
-                );
+                if (empty($prod_id)) {
+                    echo json_encode(["status" => "error", "message" => "Debe seleccionar una imagen para el nuevo producto."]);
+                    exit;
+                } else {
+                    $prod_img = $_POST["hidden_producto_imagen"];
+                }
             }
+
+            if (empty($prod_id)) {
+                $producto->insert_producto($suc_id, $cat_id, $prod_nom, $prod_descrip, $und_id, $mon_id, $prod_pcompra, $prod_pventa, $prod_stock, $prod_fechaven, $prod_img);
+                echo json_encode(["status" => "success", "message" => "Producto registrado correctamente."]);
+            } else {
+                $producto->update_producto($prod_id, $suc_id, $cat_id, $prod_nom, $prod_descrip, $und_id, $mon_id, $prod_pcompra, $prod_pventa, $prod_stock, $prod_fechaven, $prod_img);
+                echo json_encode(["status" => "success", "message" => "Producto actualizado correctamente."]);
+            }
+
             break;
         
         /*TODO: Listado de registros formato Json para Datatable Js */
