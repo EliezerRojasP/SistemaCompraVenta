@@ -37,3 +37,18 @@ var getUrlParameter = function getUrlParameter(sParam) {
         }
     }
 }
+
+document.getElementById('password-addon').addEventListener('click', function () {
+    const passwordInput = document.getElementById('usu_pass');
+    const icon = document.getElementById('icon-eye');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        icon.classList.remove('ri-eye-fill');
+        icon.classList.add('ri-eye-off-fill');
+    } else {
+        passwordInput.type = 'password';
+        icon.classList.remove('ri-eye-off-fill');
+        icon.classList.add('ri-eye-fill');
+    }
+});
