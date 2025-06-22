@@ -16,23 +16,15 @@ function guardaryeditar(e){
         data:formData,
         contentType:false,
         processData:false,
-        success: function(data) {
-        var response = JSON.parse(data);
-        if (response.status === "success") {
+        success:function(data){
             $('#table_data').DataTable().ajax.reload();
             $('#modalmantenimiento').modal('hide');
+
             swal.fire({
-                title: 'Producto',
-                text: response.message,
+                title:'Producto',
+                text: 'Registro Confirmado',
                 icon: 'success'
             });
-        } else {
-            swal.fire({
-                title: 'Error',
-                text: response.message,
-                icon: 'error'
-            });
-            }
         }
     });
 }
