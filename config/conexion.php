@@ -19,6 +19,6 @@
             //return "http://localhost:90/PERSONAL_CompraVenta/";
             return "https://compraventa-a9b5bheeftbbdza3.centralus-01.azurewebsites.net/";
         }
-
+        
     }
 ?>
