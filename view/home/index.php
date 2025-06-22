@@ -75,7 +75,7 @@
                                         <div class="d-flex align-items-lg-center flex-lg-row flex-column">
                                             <div class="flex-grow-1">
                                                 <h4 class="fs-16 mb-1">Buen dia, <?php echo $_SESSION["USU_NOM"]?>!</h4>
-                                                <p class="text-muted mb-0">Here's what's happening with your store today.</p>
+                                                <p class="text-muted mb-0">Esto es lo que está pasando con tu tienda hoy.</p>
                                             </div>
                                             <div class="mt-3 mt-lg-0">
 
