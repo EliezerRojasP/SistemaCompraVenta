@@ -52,10 +52,7 @@
                     <img src="assets/images/comprayventa.png" class="card-logo card-logo-dark" alt="Logo de [Nombre de tu Aplicación]" height="100">
                     <img src="assets/images/logo-light.png" class="card-logo card-logo-light" alt="Logo de [Nombre de tu Aplicación]" height="22">
                 </a>
-                <button class="navbar-toggler py-0 fs-20 text-body" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="mdi mdi-menu"></i>
-                </button>
-                </div>
+            </div>
         </nav>
 
         <section class="section bg-light" id="company-selection">
